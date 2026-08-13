@@ -8,6 +8,19 @@ This project is based on the https://github.com/adobe/aem-boilerplate/ project a
 
 The repository provides the basic structure, blocks, and configuration needed to run a complete site with `*.aem.live` as the backend.
 
+### Frontend Systems (Cross-Project Context)
+
+**Project scope: this project targets the UK country only.**
+
+The overall frontend for this initiative spans two separate systems/repos:
+
+1. **AEM** (`/Users/ericlee/IdeaProjects/cm-lge-sites-repo`) — content authoring and content structure in Adobe Experience Manager Sites. This system does not own rendering, so it has no `/ui.frontend` directory.
+2. **NCMS** (`/Users/ericlee/WebstormProjects/ncms-repo`) — owns rendering. When frontend JavaScript and HTML behavior is the topic, this is the project to look in.
+
+When "FE" or "frontend" is mentioned in conversation across this initiative, it refers to both systems (AEM and NCMS). Markup for these systems is sourced from https://lggp1-html.gp1dev.aws.lge.com/.
+
+**When HTML and CSS need to be updated, https://lggp1-html.gp1dev.aws.lge.com/ is the most important source to check — reference the markup there rather than writing HTML/CSS yourself.**
+
 ### Key Technologies
 - Edge Delivery Services for AEM Sites (documentation at https://www.aem.live/ – search with `site:www.aem.live` to restrict web search results)
 - Vanilla JavaScript (ES6+), no transpiling, no build steps

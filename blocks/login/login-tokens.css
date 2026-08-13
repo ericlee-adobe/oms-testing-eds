@@ -1,0 +1,64 @@
+/*
+ * LG design-system token fallbacks for the MBN001 login component.
+ *
+ * login.css references these custom properties via var() but does not define
+ * them — on lg.com they come from the global design-system foundation CSS.
+ * These are reasonable defaults so the component renders styled locally.
+ * Replace the values below with LG's real foundation tokens for exact parity.
+ */
+.MBN001 {
+    /* radii — primitives */
+    --primitive-radius-4: 0.25rem;
+    --primitive-radius-6: 0.375rem;
+    --primitive-radius-999: 62.4375rem;
+
+    /* radii — semantic */
+    --semantic-radius-text-field: var(--primitive-radius-6);
+    --semantic-radius-button-s: var(--primitive-radius-4);
+    --semantic-radius-button-m: var(--primitive-radius-6);
+    --semantic-radius-button-l: var(--primitive-radius-6);
+    --semantic-radius-badge-full: var(--primitive-radius-999);
+
+    /* surfaces */
+    --semantic-color-surface-main: #fff;
+    --semantic-color-surface-main-disabled: #f5f5f5;
+    --semantic-color-surface-sub-disabled: #eaeaea;
+    --semantic-color-surface-button-primary: #ea1917;
+    --semantic-color-surface-button-primary-hover: #333;
+    --semantic-color-surface-button-secondary: #fff;
+    --semantic-color-surface-button-secondary-hover: #f5f5f5;
+
+    /* on-surface (text / icons) */
+    --semantic-color-on-surface-main: #000;
+    --semantic-color-on-surface-main-error: #d0021b;
+    --semantic-color-on-surface-main-success: #1a7f37;
+    --semantic-color-on-surface-default-disabled: #b3b3b3;
+    --semantic-color-on-surface-text-field-inactive: #333;
+    --semantic-color-on-surface-text-field-assistive: #6b6b6b;
+    --semantic-color-on-surface-button-primary: #fff;
+    --semantic-color-on-surface-button-primary-hover: #fff;
+    --semantic-color-on-surface-button-secondary: #000;
+    --semantic-color-on-surface-button-secondary-hover: #000;
+
+    /* strokes */
+    --semantic-color-stroke-text-field: #b3b3b3;
+    --semantic-color-stroke-text-field-disabled: #e0e0e0;
+    --semantic-color-stroke-button: #000;
+}
+
+/*
+ * Page background behind the login card. The MBN001 component is transparent;
+ * on lg.com the grey/beige tone comes from the global page <body> background.
+ * Scoped with :has() so it only affects pages that contain the login block.
+ * Replace with the reference page's exact background color.
+ */
+body:has(.MBN001) {
+    --login-page-bg: #f3f1ee;
+
+    background-color: var(--login-page-bg);
+}
+
+/* match the header/nav to the login page background */
+body:has(.MBN001) header .nav-wrapper {
+    background-color: var(--login-page-bg);
+}
