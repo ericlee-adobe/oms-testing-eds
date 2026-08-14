@@ -1,0 +1,1377 @@
+/* stylelint-disable scss/at-if-no-null */
+@import './login-tokens.css';
+
+/*
+ * The reference LG stylesheet applies a global `box-sizing: border-box` reset.
+ * This project has no such global reset, so scope one to the component here —
+ * without it, inputs/buttons (width:100% + padding + border) overflow their
+ * container to the right ("extended to outer layer").
+ */
+.MBN001 *,
+.MBN001 *::before,
+.MBN001 *::after {
+    box-sizing: border-box;
+}
+
+.c-input-bomE {
+    position: relative;
+}
+.c-input-bomE .input-animation[type=text], .c-input-bomE .input-animation[type=tel], .c-input-bomE .input-animation[type=password], .c-input-bomE .input-animation[type=text], .c-input-bomE .input-animation[type=date], .c-input-bomE .input-animation[type=email], .c-input-bomE .input-animation[type=time], .c-input-bomE .input-animation.bomE-iframe {
+    position: relative;
+    width: 100%;
+    padding: 0 0.875rem;
+    height: 3rem;
+    border: 0.0625rem solid var(--semantic-color-stroke-text-field);
+    border-radius: var(--semantic-radius-text-field);
+    z-index: 1;
+    background: var(--semantic-color-surface-main);
+    color: var(--semantic-color-on-surface-text-field-inactive);
+}
+.c-input-bomE .input-animation[type=text]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=tel]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=password]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=date]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=email]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=time]:-webkit-input-placeholder, .c-input-bomE .input-animation.bomE-iframe:-webkit-input-placeholder {
+    color: transparent;
+    opacity: 0;
+}
+.c-input-bomE .input-animation[type=text]::placeholder, .c-input-bomE .input-animation[type=tel]::placeholder, .c-input-bomE .input-animation[type=password]::placeholder, .c-input-bomE .input-animation[type=text]::placeholder, .c-input-bomE .input-animation[type=date]::placeholder, .c-input-bomE .input-animation[type=email]::placeholder, .c-input-bomE .input-animation[type=time]::placeholder, .c-input-bomE .input-animation.bomE-iframe::placeholder {
+    color: transparent;
+    opacity: 0;
+}
+.c-input-bomE .input-animation[type=text]:focus, .c-input-bomE .input-animation[type=text]:focus-visible, .c-input-bomE .input-animation[type=text].is-filled, .c-input-bomE .input-animation[type=text].is-fix, .c-input-bomE .input-animation[type=text][readonly], .c-input-bomE .input-animation[type=tel]:focus, .c-input-bomE .input-animation[type=tel]:focus-visible, .c-input-bomE .input-animation[type=tel].is-filled, .c-input-bomE .input-animation[type=tel].is-fix, .c-input-bomE .input-animation[type=tel][readonly], .c-input-bomE .input-animation[type=password]:focus, .c-input-bomE .input-animation[type=password]:focus-visible, .c-input-bomE .input-animation[type=password].is-filled, .c-input-bomE .input-animation[type=password].is-fix, .c-input-bomE .input-animation[type=password][readonly], .c-input-bomE .input-animation[type=text]:focus, .c-input-bomE .input-animation[type=text]:focus-visible, .c-input-bomE .input-animation[type=text].is-filled, .c-input-bomE .input-animation[type=text].is-fix, .c-input-bomE .input-animation[type=text][readonly], .c-input-bomE .input-animation[type=date]:focus, .c-input-bomE .input-animation[type=date]:focus-visible, .c-input-bomE .input-animation[type=date].is-filled, .c-input-bomE .input-animation[type=date].is-fix, .c-input-bomE .input-animation[type=date][readonly], .c-input-bomE .input-animation[type=email]:focus, .c-input-bomE .input-animation[type=email]:focus-visible, .c-input-bomE .input-animation[type=email].is-filled, .c-input-bomE .input-animation[type=email].is-fix, .c-input-bomE .input-animation[type=email][readonly], .c-input-bomE .input-animation[type=time]:focus, .c-input-bomE .input-animation[type=time]:focus-visible, .c-input-bomE .input-animation[type=time].is-filled, .c-input-bomE .input-animation[type=time].is-fix, .c-input-bomE .input-animation[type=time][readonly], .c-input-bomE .input-animation.bomE-iframe:focus, .c-input-bomE .input-animation.bomE-iframe:focus-visible, .c-input-bomE .input-animation.bomE-iframe.is-filled, .c-input-bomE .input-animation.bomE-iframe.is-fix, .c-input-bomE .input-animation.bomE-iframe[readonly] {
+    border-color: #cbc8c2;
+}
+.c-input-bomE .input-animation[type=text]:focus + .label-move, .c-input-bomE .input-animation[type=text]:focus-visible + .label-move, .c-input-bomE .input-animation[type=text].is-filled + .label-move, .c-input-bomE .input-animation[type=text].is-fix + .label-move, .c-input-bomE .input-animation[type=text][readonly] + .label-move, .c-input-bomE .input-animation[type=tel]:focus + .label-move, .c-input-bomE .input-animation[type=tel]:focus-visible + .label-move, .c-input-bomE .input-animation[type=tel].is-filled + .label-move, .c-input-bomE .input-animation[type=tel].is-fix + .label-move, .c-input-bomE .input-animation[type=tel][readonly] + .label-move, .c-input-bomE .input-animation[type=password]:focus + .label-move, .c-input-bomE .input-animation[type=password]:focus-visible + .label-move, .c-input-bomE .input-animation[type=password].is-filled + .label-move, .c-input-bomE .input-animation[type=password].is-fix + .label-move, .c-input-bomE .input-animation[type=password][readonly] + .label-move, .c-input-bomE .input-animation[type=text]:focus + .label-move, .c-input-bomE .input-animation[type=text]:focus-visible + .label-move, .c-input-bomE .input-animation[type=text].is-filled + .label-move, .c-input-bomE .input-animation[type=text].is-fix + .label-move, .c-input-bomE .input-animation[type=text][readonly] + .label-move, .c-input-bomE .input-animation[type=date]:focus + .label-move, .c-input-bomE .input-animation[type=date]:focus-visible + .label-move, .c-input-bomE .input-animation[type=date].is-filled + .label-move, .c-input-bomE .input-animation[type=date].is-fix + .label-move, .c-input-bomE .input-animation[type=date][readonly] + .label-move, .c-input-bomE .input-animation[type=email]:focus + .label-move, .c-input-bomE .input-animation[type=email]:focus-visible + .label-move, .c-input-bomE .input-animation[type=email].is-filled + .label-move, .c-input-bomE .input-animation[type=email].is-fix + .label-move, .c-input-bomE .input-animation[type=email][readonly] + .label-move, .c-input-bomE .input-animation[type=time]:focus + .label-move, .c-input-bomE .input-animation[type=time]:focus-visible + .label-move, .c-input-bomE .input-animation[type=time].is-filled + .label-move, .c-input-bomE .input-animation[type=time].is-fix + .label-move, .c-input-bomE .input-animation[type=time][readonly] + .label-move, .c-input-bomE .input-animation.bomE-iframe:focus + .label-move, .c-input-bomE .input-animation.bomE-iframe:focus-visible + .label-move, .c-input-bomE .input-animation.bomE-iframe.is-filled + .label-move, .c-input-bomE .input-animation.bomE-iframe.is-fix + .label-move, .c-input-bomE .input-animation.bomE-iframe[readonly] + .label-move {
+    transform: translate(0.25rem, -0.5rem);
+    height: 1rem;
+    max-width: 95%;
+    right: auto;
+}
+.c-input-bomE .input-animation[type=text]:focus + .label-move:before, .c-input-bomE .input-animation[type=text]:focus-visible + .label-move:before, .c-input-bomE .input-animation[type=text].is-filled + .label-move:before, .c-input-bomE .input-animation[type=text].is-fix + .label-move:before, .c-input-bomE .input-animation[type=text][readonly] + .label-move:before, .c-input-bomE .input-animation[type=tel]:focus + .label-move:before, .c-input-bomE .input-animation[type=tel]:focus-visible + .label-move:before, .c-input-bomE .input-animation[type=tel].is-filled + .label-move:before, .c-input-bomE .input-animation[type=tel].is-fix + .label-move:before, .c-input-bomE .input-animation[type=tel][readonly] + .label-move:before, .c-input-bomE .input-animation[type=password]:focus + .label-move:before, .c-input-bomE .input-animation[type=password]:focus-visible + .label-move:before, .c-input-bomE .input-animation[type=password].is-filled + .label-move:before, .c-input-bomE .input-animation[type=password].is-fix + .label-move:before, .c-input-bomE .input-animation[type=password][readonly] + .label-move:before, .c-input-bomE .input-animation[type=text]:focus + .label-move:before, .c-input-bomE .input-animation[type=text]:focus-visible + .label-move:before, .c-input-bomE .input-animation[type=text].is-filled + .label-move:before, .c-input-bomE .input-animation[type=text].is-fix + .label-move:before, .c-input-bomE .input-animation[type=text][readonly] + .label-move:before, .c-input-bomE .input-animation[type=date]:focus + .label-move:before, .c-input-bomE .input-animation[type=date]:focus-visible + .label-move:before, .c-input-bomE .input-animation[type=date].is-filled + .label-move:before, .c-input-bomE .input-animation[type=date].is-fix + .label-move:before, .c-input-bomE .input-animation[type=date][readonly] + .label-move:before, .c-input-bomE .input-animation[type=email]:focus + .label-move:before, .c-input-bomE .input-animation[type=email]:focus-visible + .label-move:before, .c-input-bomE .input-animation[type=email].is-filled + .label-move:before, .c-input-bomE .input-animation[type=email].is-fix + .label-move:before, .c-input-bomE .input-animation[type=email][readonly] + .label-move:before, .c-input-bomE .input-animation[type=time]:focus + .label-move:before, .c-input-bomE .input-animation[type=time]:focus-visible + .label-move:before, .c-input-bomE .input-animation[type=time].is-filled + .label-move:before, .c-input-bomE .input-animation[type=time].is-fix + .label-move:before, .c-input-bomE .input-animation[type=time][readonly] + .label-move:before, .c-input-bomE .input-animation.bomE-iframe:focus + .label-move:before, .c-input-bomE .input-animation.bomE-iframe:focus-visible + .label-move:before, .c-input-bomE .input-animation.bomE-iframe.is-filled + .label-move:before, .c-input-bomE .input-animation.bomE-iframe.is-fix + .label-move:before, .c-input-bomE .input-animation.bomE-iframe[readonly] + .label-move:before {
+    content: "";
+    position: absolute;
+    top: 0.4375rem;
+    left: 0.625rem;
+    right: 0.625rem;
+    height: 0.3125rem;
+    background: #fff;
+    z-index: -1;
+}
+.c-input-bomE .input-animation[type=text]:focus + .label-move .label-text, .c-input-bomE .input-animation[type=text]:focus-visible + .label-move .label-text, .c-input-bomE .input-animation[type=text].is-filled + .label-move .label-text, .c-input-bomE .input-animation[type=text].is-fix + .label-move .label-text, .c-input-bomE .input-animation[type=text][readonly] + .label-move .label-text, .c-input-bomE .input-animation[type=tel]:focus + .label-move .label-text, .c-input-bomE .input-animation[type=tel]:focus-visible + .label-move .label-text, .c-input-bomE .input-animation[type=tel].is-filled + .label-move .label-text, .c-input-bomE .input-animation[type=tel].is-fix + .label-move .label-text, .c-input-bomE .input-animation[type=tel][readonly] + .label-move .label-text, .c-input-bomE .input-animation[type=password]:focus + .label-move .label-text, .c-input-bomE .input-animation[type=password]:focus-visible + .label-move .label-text, .c-input-bomE .input-animation[type=password].is-filled + .label-move .label-text, .c-input-bomE .input-animation[type=password].is-fix + .label-move .label-text, .c-input-bomE .input-animation[type=password][readonly] + .label-move .label-text, .c-input-bomE .input-animation[type=text]:focus + .label-move .label-text, .c-input-bomE .input-animation[type=text]:focus-visible + .label-move .label-text, .c-input-bomE .input-animation[type=text].is-filled + .label-move .label-text, .c-input-bomE .input-animation[type=text].is-fix + .label-move .label-text, .c-input-bomE .input-animation[type=text][readonly] + .label-move .label-text, .c-input-bomE .input-animation[type=date]:focus + .label-move .label-text, .c-input-bomE .input-animation[type=date]:focus-visible + .label-move .label-text, .c-input-bomE .input-animation[type=date].is-filled + .label-move .label-text, .c-input-bomE .input-animation[type=date].is-fix + .label-move .label-text, .c-input-bomE .input-animation[type=date][readonly] + .label-move .label-text, .c-input-bomE .input-animation[type=email]:focus + .label-move .label-text, .c-input-bomE .input-animation[type=email]:focus-visible + .label-move .label-text, .c-input-bomE .input-animation[type=email].is-filled + .label-move .label-text, .c-input-bomE .input-animation[type=email].is-fix + .label-move .label-text, .c-input-bomE .input-animation[type=email][readonly] + .label-move .label-text, .c-input-bomE .input-animation[type=time]:focus + .label-move .label-text, .c-input-bomE .input-animation[type=time]:focus-visible + .label-move .label-text, .c-input-bomE .input-animation[type=time].is-filled + .label-move .label-text, .c-input-bomE .input-animation[type=time].is-fix + .label-move .label-text, .c-input-bomE .input-animation[type=time][readonly] + .label-move .label-text, .c-input-bomE .input-animation.bomE-iframe:focus + .label-move .label-text, .c-input-bomE .input-animation.bomE-iframe:focus-visible + .label-move .label-text, .c-input-bomE .input-animation.bomE-iframe.is-filled + .label-move .label-text, .c-input-bomE .input-animation.bomE-iframe.is-fix + .label-move .label-text, .c-input-bomE .input-animation.bomE-iframe[readonly] + .label-move .label-text {
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    color: #333;
+}
+.c-input-bomE .input-animation[type=text]:focus + .label-move .c-required, .c-input-bomE .input-animation[type=text]:focus-visible + .label-move .c-required, .c-input-bomE .input-animation[type=text].is-filled + .label-move .c-required, .c-input-bomE .input-animation[type=text].is-fix + .label-move .c-required, .c-input-bomE .input-animation[type=text][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=tel]:focus + .label-move .c-required, .c-input-bomE .input-animation[type=tel]:focus-visible + .label-move .c-required, .c-input-bomE .input-animation[type=tel].is-filled + .label-move .c-required, .c-input-bomE .input-animation[type=tel].is-fix + .label-move .c-required, .c-input-bomE .input-animation[type=tel][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=password]:focus + .label-move .c-required, .c-input-bomE .input-animation[type=password]:focus-visible + .label-move .c-required, .c-input-bomE .input-animation[type=password].is-filled + .label-move .c-required, .c-input-bomE .input-animation[type=password].is-fix + .label-move .c-required, .c-input-bomE .input-animation[type=password][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=text]:focus + .label-move .c-required, .c-input-bomE .input-animation[type=text]:focus-visible + .label-move .c-required, .c-input-bomE .input-animation[type=text].is-filled + .label-move .c-required, .c-input-bomE .input-animation[type=text].is-fix + .label-move .c-required, .c-input-bomE .input-animation[type=text][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=date]:focus + .label-move .c-required, .c-input-bomE .input-animation[type=date]:focus-visible + .label-move .c-required, .c-input-bomE .input-animation[type=date].is-filled + .label-move .c-required, .c-input-bomE .input-animation[type=date].is-fix + .label-move .c-required, .c-input-bomE .input-animation[type=date][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=email]:focus + .label-move .c-required, .c-input-bomE .input-animation[type=email]:focus-visible + .label-move .c-required, .c-input-bomE .input-animation[type=email].is-filled + .label-move .c-required, .c-input-bomE .input-animation[type=email].is-fix + .label-move .c-required, .c-input-bomE .input-animation[type=email][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=time]:focus + .label-move .c-required, .c-input-bomE .input-animation[type=time]:focus-visible + .label-move .c-required, .c-input-bomE .input-animation[type=time].is-filled + .label-move .c-required, .c-input-bomE .input-animation[type=time].is-fix + .label-move .c-required, .c-input-bomE .input-animation[type=time][readonly] + .label-move .c-required, .c-input-bomE .input-animation.bomE-iframe:focus + .label-move .c-required, .c-input-bomE .input-animation.bomE-iframe:focus-visible + .label-move .c-required, .c-input-bomE .input-animation.bomE-iframe.is-filled + .label-move .c-required, .c-input-bomE .input-animation.bomE-iframe.is-fix + .label-move .c-required, .c-input-bomE .input-animation.bomE-iframe[readonly] + .label-move .c-required {
+    font-size: 0.875rem;
+    line-height: 1rem;
+}
+.c-input-bomE .input-animation[type=text]:focus:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text]:focus-visible:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text].is-filled:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text].is-fix:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text][readonly]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=tel]:focus:-webkit-input-placeholder, .c-input-bomE .input-animation[type=tel]:focus-visible:-webkit-input-placeholder, .c-input-bomE .input-animation[type=tel].is-filled:-webkit-input-placeholder, .c-input-bomE .input-animation[type=tel].is-fix:-webkit-input-placeholder, .c-input-bomE .input-animation[type=tel][readonly]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=password]:focus:-webkit-input-placeholder, .c-input-bomE .input-animation[type=password]:focus-visible:-webkit-input-placeholder, .c-input-bomE .input-animation[type=password].is-filled:-webkit-input-placeholder, .c-input-bomE .input-animation[type=password].is-fix:-webkit-input-placeholder, .c-input-bomE .input-animation[type=password][readonly]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text]:focus:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text]:focus-visible:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text].is-filled:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text].is-fix:-webkit-input-placeholder, .c-input-bomE .input-animation[type=text][readonly]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=date]:focus:-webkit-input-placeholder, .c-input-bomE .input-animation[type=date]:focus-visible:-webkit-input-placeholder, .c-input-bomE .input-animation[type=date].is-filled:-webkit-input-placeholder, .c-input-bomE .input-animation[type=date].is-fix:-webkit-input-placeholder, .c-input-bomE .input-animation[type=date][readonly]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=email]:focus:-webkit-input-placeholder, .c-input-bomE .input-animation[type=email]:focus-visible:-webkit-input-placeholder, .c-input-bomE .input-animation[type=email].is-filled:-webkit-input-placeholder, .c-input-bomE .input-animation[type=email].is-fix:-webkit-input-placeholder, .c-input-bomE .input-animation[type=email][readonly]:-webkit-input-placeholder, .c-input-bomE .input-animation[type=time]:focus:-webkit-input-placeholder, .c-input-bomE .input-animation[type=time]:focus-visible:-webkit-input-placeholder, .c-input-bomE .input-animation[type=time].is-filled:-webkit-input-placeholder, .c-input-bomE .input-animation[type=time].is-fix:-webkit-input-placeholder, .c-input-bomE .input-animation[type=time][readonly]:-webkit-input-placeholder, .c-input-bomE .input-animation.bomE-iframe:focus:-webkit-input-placeholder, .c-input-bomE .input-animation.bomE-iframe:focus-visible:-webkit-input-placeholder, .c-input-bomE .input-animation.bomE-iframe.is-filled:-webkit-input-placeholder, .c-input-bomE .input-animation.bomE-iframe.is-fix:-webkit-input-placeholder, .c-input-bomE .input-animation.bomE-iframe[readonly]:-webkit-input-placeholder {
+    color: #646464;
+    opacity: 1;
+    transition: all 0.3s;
+    transition-delay: 0.1s;
+}
+.c-input-bomE .input-animation[type=text]:focus::placeholder, .c-input-bomE .input-animation[type=text]:focus-visible::placeholder, .c-input-bomE .input-animation[type=text].is-filled::placeholder, .c-input-bomE .input-animation[type=text].is-fix::placeholder, .c-input-bomE .input-animation[type=text][readonly]::placeholder, .c-input-bomE .input-animation[type=tel]:focus::placeholder, .c-input-bomE .input-animation[type=tel]:focus-visible::placeholder, .c-input-bomE .input-animation[type=tel].is-filled::placeholder, .c-input-bomE .input-animation[type=tel].is-fix::placeholder, .c-input-bomE .input-animation[type=tel][readonly]::placeholder, .c-input-bomE .input-animation[type=password]:focus::placeholder, .c-input-bomE .input-animation[type=password]:focus-visible::placeholder, .c-input-bomE .input-animation[type=password].is-filled::placeholder, .c-input-bomE .input-animation[type=password].is-fix::placeholder, .c-input-bomE .input-animation[type=password][readonly]::placeholder, .c-input-bomE .input-animation[type=text]:focus::placeholder, .c-input-bomE .input-animation[type=text]:focus-visible::placeholder, .c-input-bomE .input-animation[type=text].is-filled::placeholder, .c-input-bomE .input-animation[type=text].is-fix::placeholder, .c-input-bomE .input-animation[type=text][readonly]::placeholder, .c-input-bomE .input-animation[type=date]:focus::placeholder, .c-input-bomE .input-animation[type=date]:focus-visible::placeholder, .c-input-bomE .input-animation[type=date].is-filled::placeholder, .c-input-bomE .input-animation[type=date].is-fix::placeholder, .c-input-bomE .input-animation[type=date][readonly]::placeholder, .c-input-bomE .input-animation[type=email]:focus::placeholder, .c-input-bomE .input-animation[type=email]:focus-visible::placeholder, .c-input-bomE .input-animation[type=email].is-filled::placeholder, .c-input-bomE .input-animation[type=email].is-fix::placeholder, .c-input-bomE .input-animation[type=email][readonly]::placeholder, .c-input-bomE .input-animation[type=time]:focus::placeholder, .c-input-bomE .input-animation[type=time]:focus-visible::placeholder, .c-input-bomE .input-animation[type=time].is-filled::placeholder, .c-input-bomE .input-animation[type=time].is-fix::placeholder, .c-input-bomE .input-animation[type=time][readonly]::placeholder, .c-input-bomE .input-animation.bomE-iframe:focus::placeholder, .c-input-bomE .input-animation.bomE-iframe:focus-visible::placeholder, .c-input-bomE .input-animation.bomE-iframe.is-filled::placeholder, .c-input-bomE .input-animation.bomE-iframe.is-fix::placeholder, .c-input-bomE .input-animation.bomE-iframe[readonly]::placeholder {
+    color: #646464;
+    opacity: 1;
+    transition: all 0.3s;
+    transition-delay: 0.1s;
+}
+.c-input-bomE .input-animation[type=text]:focus-visible, .c-input-bomE .input-animation[type=tel]:focus-visible, .c-input-bomE .input-animation[type=password]:focus-visible, .c-input-bomE .input-animation[type=text]:focus-visible, .c-input-bomE .input-animation[type=date]:focus-visible, .c-input-bomE .input-animation[type=email]:focus-visible, .c-input-bomE .input-animation[type=time]:focus-visible, .c-input-bomE .input-animation.bomE-iframe:focus-visible {
+    outline-offset: -0.125rem;
+}
+.c-input-bomE .input-animation[type=text][readonly], .c-input-bomE .input-animation[type=tel][readonly], .c-input-bomE .input-animation[type=password][readonly], .c-input-bomE .input-animation[type=text][readonly], .c-input-bomE .input-animation[type=date][readonly], .c-input-bomE .input-animation[type=email][readonly], .c-input-bomE .input-animation[type=time][readonly], .c-input-bomE .input-animation.bomE-iframe[readonly] {
+    border-color: #cbc8c2;
+    cursor: default;
+    pointer-events: none;
+    color: #646464;
+    background-color: #efefef;
+}
+.c-input-bomE .input-animation[type=text][readonly] + .label-move:before, .c-input-bomE .input-animation[type=tel][readonly] + .label-move:before, .c-input-bomE .input-animation[type=password][readonly] + .label-move:before, .c-input-bomE .input-animation[type=text][readonly] + .label-move:before, .c-input-bomE .input-animation[type=date][readonly] + .label-move:before, .c-input-bomE .input-animation[type=email][readonly] + .label-move:before, .c-input-bomE .input-animation[type=time][readonly] + .label-move:before, .c-input-bomE .input-animation.bomE-iframe[readonly] + .label-move:before {
+    background-color: #efefef;
+}
+.c-input-bomE .input-animation[type=text][readonly] + .label-move .label-text,
+.c-input-bomE .input-animation[type=text][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=tel][readonly] + .label-move .label-text,
+.c-input-bomE .input-animation[type=tel][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=password][readonly] + .label-move .label-text,
+.c-input-bomE .input-animation[type=password][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=text][readonly] + .label-move .label-text,
+.c-input-bomE .input-animation[type=text][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=date][readonly] + .label-move .label-text,
+.c-input-bomE .input-animation[type=date][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=email][readonly] + .label-move .label-text,
+.c-input-bomE .input-animation[type=email][readonly] + .label-move .c-required, .c-input-bomE .input-animation[type=time][readonly] + .label-move .label-text,
+.c-input-bomE .input-animation[type=time][readonly] + .label-move .c-required, .c-input-bomE .input-animation.bomE-iframe[readonly] + .label-move .label-text,
+.c-input-bomE .input-animation.bomE-iframe[readonly] + .label-move .c-required {
+    color: #969491;
+}
+.c-input-bomE .input-animation[type=text][disabled], .c-input-bomE .input-animation[type=tel][disabled], .c-input-bomE .input-animation[type=password][disabled], .c-input-bomE .input-animation[type=text][disabled], .c-input-bomE .input-animation[type=date][disabled], .c-input-bomE .input-animation[type=email][disabled], .c-input-bomE .input-animation[type=time][disabled], .c-input-bomE .input-animation.bomE-iframe[disabled] {
+    border-color: var(--semantic-color-stroke-text-field-disabled);
+    cursor: default;
+    pointer-events: none;
+    background-color: var(--semantic-color-surface-main-disabled);
+}
+.c-input-bomE .input-animation[type=text][disabled]:before, .c-input-bomE .input-animation[type=tel][disabled]:before, .c-input-bomE .input-animation[type=password][disabled]:before, .c-input-bomE .input-animation[type=text][disabled]:before, .c-input-bomE .input-animation[type=date][disabled]:before, .c-input-bomE .input-animation[type=email][disabled]:before, .c-input-bomE .input-animation[type=time][disabled]:before, .c-input-bomE .input-animation.bomE-iframe[disabled]:before {
+    background-color: #efefef;
+}
+.c-input-bomE .input-animation[type=text][disabled] + .label-move .label-text, .c-input-bomE .input-animation[type=tel][disabled] + .label-move .label-text, .c-input-bomE .input-animation[type=password][disabled] + .label-move .label-text, .c-input-bomE .input-animation[type=text][disabled] + .label-move .label-text, .c-input-bomE .input-animation[type=date][disabled] + .label-move .label-text, .c-input-bomE .input-animation[type=email][disabled] + .label-move .label-text, .c-input-bomE .input-animation[type=time][disabled] + .label-move .label-text, .c-input-bomE .input-animation.bomE-iframe[disabled] + .label-move .label-text {
+    color: var(--semantic-color-on-surface-default-disabled);
+}
+.c-input-bomE .input-animation[type=text][required][disabled] + .label-move .label-text,
+.c-input-bomE .input-animation[type=text][required][disabled] + .label-move .c-required, .c-input-bomE .input-animation[type=tel][required][disabled] + .label-move .label-text,
+.c-input-bomE .input-animation[type=tel][required][disabled] + .label-move .c-required, .c-input-bomE .input-animation[type=password][required][disabled] + .label-move .label-text,
+.c-input-bomE .input-animation[type=password][required][disabled] + .label-move .c-required, .c-input-bomE .input-animation[type=text][required][disabled] + .label-move .label-text,
+.c-input-bomE .input-animation[type=text][required][disabled] + .label-move .c-required, .c-input-bomE .input-animation[type=date][required][disabled] + .label-move .label-text,
+.c-input-bomE .input-animation[type=date][required][disabled] + .label-move .c-required, .c-input-bomE .input-animation[type=email][required][disabled] + .label-move .label-text,
+.c-input-bomE .input-animation[type=email][required][disabled] + .label-move .c-required, .c-input-bomE .input-animation[type=time][required][disabled] + .label-move .label-text,
+.c-input-bomE .input-animation[type=time][required][disabled] + .label-move .c-required, .c-input-bomE .input-animation.bomE-iframe[required][disabled] + .label-move .label-text,
+.c-input-bomE .input-animation.bomE-iframe[required][disabled] + .label-move .c-required {
+    color: var(--semantic-color-on-surface-default-disabled);
+}
+.c-input-bomE .input-animation[type=text].my-warn, .c-input-bomE .input-animation[type=tel].my-warn, .c-input-bomE .input-animation[type=password].my-warn, .c-input-bomE .input-animation[type=text].my-warn, .c-input-bomE .input-animation[type=date].my-warn, .c-input-bomE .input-animation[type=email].my-warn, .c-input-bomE .input-animation[type=time].my-warn, .c-input-bomE .input-animation.bomE-iframe.my-warn {
+    border-color: #ea1917;
+}
+.c-input-bomE .input-animation[type=text].my-warn + .label-move .label-text,
+.c-input-bomE .input-animation[type=text].my-warn + .label-move .c-required, .c-input-bomE .input-animation[type=tel].my-warn + .label-move .label-text,
+.c-input-bomE .input-animation[type=tel].my-warn + .label-move .c-required, .c-input-bomE .input-animation[type=password].my-warn + .label-move .label-text,
+.c-input-bomE .input-animation[type=password].my-warn + .label-move .c-required, .c-input-bomE .input-animation[type=text].my-warn + .label-move .label-text,
+.c-input-bomE .input-animation[type=text].my-warn + .label-move .c-required, .c-input-bomE .input-animation[type=date].my-warn + .label-move .label-text,
+.c-input-bomE .input-animation[type=date].my-warn + .label-move .c-required, .c-input-bomE .input-animation[type=email].my-warn + .label-move .label-text,
+.c-input-bomE .input-animation[type=email].my-warn + .label-move .c-required, .c-input-bomE .input-animation[type=time].my-warn + .label-move .label-text,
+.c-input-bomE .input-animation[type=time].my-warn + .label-move .c-required, .c-input-bomE .input-animation.bomE-iframe.my-warn + .label-move .label-text,
+.c-input-bomE .input-animation.bomE-iframe.my-warn + .label-move .c-required {
+    color: #ea1917;
+}
+.c-input-bomE .input-animation[type=date]::-webkit-clear-button, .c-input-bomE .input-animation[type=date]::-webkit-inner-spin-button, .c-input-bomE .input-animation[type=date]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+.c-input-bomE .label-move {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 0.875rem;
+    z-index: 1;
+    cursor: text;
+    transition: padding 0.3s, height 0.3s, width 0.3s, transform 0.1s, left 0.1s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    max-width: 100%;
+}
+.c-input-bomE .label-move .label-text {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: var(--semantic-color-on-surface-text-field-inactive);
+    white-space: nowrap;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.c-input-bomE .label-move .c-required {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+}
+.MBN001 .c-required {
+    color: #ea1917;
+}
+.MBN001 .sr-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    width: 0.0625rem;
+    height: 0.0625rem;
+    margin: -0.0625rem;
+    padding: 0;
+    border: 0;
+}
+.c-input-bomE .input-animation[class*=icon-] {
+    padding-left: 2.875rem;
+}
+.c-input-bomE .input-animation[class*=icon-] + .label-move {
+    left: 2rem;
+    -webkit-animation: clear 0.3s ease-out;
+    animation: clear 0.3s ease-out;
+}
+.c-input-bomE .input-animation[class*=icon-]:focus + .label-move, .c-input-bomE .input-animation[class*=icon-]:focus-visible + .label-move, .c-input-bomE .input-animation[class*=icon-].is-filled + .label-move, .c-input-bomE .input-animation[class*=icon-].is-fix + .label-move, .c-input-bomE .input-animation[class*=icon-][readonly] + .label-move {
+    left: 0;
+    -webkit-animation: move 0.3s ease-out;
+    animation: move 0.3s ease-out;
+}
+.c-input-bomE .input-animation[class*=icon-].icon-search {
+    background-image: url("../../assets/icon/icon-search-black-24-24.svg");
+    background-repeat: no-repeat;
+    background-position: 0.6875rem center;
+    background-size: 1.5rem;
+}
+.c-input-bomE .input-animation[class*=icon-].icon-date {
+    background-image: url("../../assets/icon/icon-calendar-black-24-24.svg");
+    background-repeat: no-repeat;
+    background-position: 0.6875rem center;
+    background-size: 1.5rem;
+}
+.c-input-bomE.has-side .input-animation {
+    padding-right: 2.875rem;
+}
+.c-input-bomE.has-side .input-animation + .label-move {
+    max-width: calc(100% - 2.1875rem);
+}
+.c-input-bomE.has-side .input-animation.etc-code {
+    padding-right: 4rem;
+}
+.c-input-bomE.has-side .input-animation.etc-code + .label-move {
+    max-width: calc(100% - 3.3125rem);
+}
+.c-input-bomE.has-side .input-animation.etc-code--multi {
+    padding-right: 5.875rem;
+}
+.c-input-bomE.has-side .input-animation.etc-code--multi + .label-move {
+    max-width: calc(100% - 5.1875rem);
+}
+.c-input-bomE.has-side .c-input-bomE--side {
+    position: absolute;
+    right: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    flex-flow: row;
+    gap: 0.375rem;
+    align-items: center;
+}
+.c-input-bomE.has-side .c-input-bomE--side button,
+.c-input-bomE.has-side .c-input-bomE--side a {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+}
+.c-input-bomE.has-side .c-input-bomE--side button.my-form__eye,
+.c-input-bomE.has-side .c-input-bomE--side a.my-form__eye {
+    border-radius: var(--primitive-radius-999);
+    background-image: url("../../assets/icon/icon-mylg-view-on-24-24.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.c-input-bomE.has-side .c-input-bomE--side button.btn-datepiker,
+.c-input-bomE.has-side .c-input-bomE--side a.btn-datepiker {
+    background-image: url("../../assets/icon/icon-calendar-black-24-24.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.c-input-bomE.has-side .c-input-bomE--side button.btn-search,
+.c-input-bomE.has-side .c-input-bomE--side a.btn-search {
+    background-image: url("../../assets/icon/icon-search-black-24-24.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.c-input-bomE.has-side .c-input-bomE--side button.btn-extend,
+.c-input-bomE.has-side .c-input-bomE--side a.btn-extend {
+    background-image: url("../../assets/icon/icon-time-extend-24-24.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.c-input-bomE.has-side.active .c-input-bomE--side button.my-form__eye,
+.c-input-bomE.has-side.active .c-input-bomE--side a.my-form__eye {
+    background-image: url("../../assets/icon/icon-mylg-view-32-32.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.c-input-bomE .select-bomE, .c-input-bomE .select-bomE.is-select {
+    position: relative;
+    width: 100%;
+    padding: 0 3rem 0 0.875rem;
+    height: 3rem;
+    border: 0.0625rem solid var(--semantic-color-stroke-text-field);
+    border-radius: var(--semantic-radius-text-field);
+    z-index: 2;
+    background: var(--semantic-color-surface-main);
+    color: var(--semantic-color-on-surface-main);
+    appearance: none;
+    cursor: pointer;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-image: url("../../assets/icon/bome-select-black-20-20.svg");
+    background-position: calc(100% - 0.875rem) 50%;
+}
+.c-input-bomE .select-bomE:focus-visible, .c-input-bomE .select-bomE.is-select:focus-visible {
+    outline-offset: -0.125rem;
+}
+.c-input-bomE .select-bomE + .label-fix, .c-input-bomE .select-bomE.is-select + .label-fix {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 0.875rem;
+    z-index: 2;
+    transform: translate(0.25rem, -0.5rem);
+    height: 1rem;
+    max-width: 95%;
+}
+.c-input-bomE .select-bomE + .label-fix:before, .c-input-bomE .select-bomE.is-select + .label-fix:before {
+    content: "";
+    position: absolute;
+    top: 0.4375rem;
+    left: 0.625rem;
+    right: 0.625rem;
+    height: 0.3125rem;
+    background: #fff;
+    z-index: -1;
+}
+.c-input-bomE .select-bomE + .label-fix .label-text, .c-input-bomE .select-bomE.is-select + .label-fix .label-text {
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    color: var(--semantic-color-on-surface-main);
+    white-space: nowrap;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.c-input-bomE .select-bomE + .label-fix .c-required, .c-input-bomE .select-bomE.is-select + .label-fix .c-required {
+    font-size: 0.875rem;
+    line-height: 1rem;
+    font-weight: 400;
+}
+.c-input-bomE .select-bomE.is-select[disabled] {
+    border-color: #cbc8c2;
+    cursor: default;
+    pointer-events: none;
+    color: #646464;
+    opacity: 1;
+    background-color: #efefef;
+    background-repeat: no-repeat;
+    background-image: url("../../assets/icon/bome-select-gray-20-20.svg");
+    background-position: calc(100% - 0.875rem) 50%;
+}
+.c-input-bomE .select-bomE.is-select[disabled] + .label-fix:before {
+    background-color: var(--semantic-color-surface-sub-disabled);
+}
+.c-input-bomE .select-bomE.is-select[disabled] + .label-fix .label-text,
+.c-input-bomE .select-bomE.is-select[disabled] + .label-fix .c-required {
+    color: var(--semantic-color-on-surface-default-disabled);
+}
+.c-input-bomE .select-bomE.my-warn {
+    border-color: #ea1917;
+}
+.c-input-bomE .select-bomE.my-warn + .label-fix .label-text,
+.c-input-bomE .select-bomE.my-warn + .label-fix .c-required {
+    color: #ea1917;
+}
+.c-input-bomE .select-bomE:not(.is-select)[disabled] {
+    border-color: var(--semantic-color-stroke-text-field-disabled);
+    cursor: default;
+    pointer-events: none;
+    color: var(--semantic-color-on-surface-default-disabled);
+    opacity: 1;
+    background-color: var(--semantic-color-surface-sub-disabled);
+    background-repeat: no-repeat;
+    background-image: url("../../assets/icon/bome-select-gray-20-20.svg");
+    background-position: calc(100% - 0.875rem) 50%;
+}
+.c-input-bomE .select-bomE:not(.is-select)[disabled] + .label-fix {
+    display: none;
+}
+.c-input-bomE .label-header .label-text {
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    color: #262626;
+    text-align: left;
+}
+.c-input-bomE .label-header .c-required {
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    font-weight: 400;
+}
+.c-input-bomE .label-header + textarea {
+    margin: 0.75rem 0 0.5rem;
+    vertical-align: top;
+}
+.c-input-bomE textarea {
+    width: 100%;
+    padding: 0.875rem 0.875rem;
+    height: auto;
+    min-height: 8.75rem;
+    max-height: 12.5rem;
+    border: 0.0625rem solid #969491;
+    border-radius: var(--semantic-radius-text-field);
+    color: #262626;
+    font-size: 0.875rem;
+    line-height: 1rem;
+}
+.c-input-bomE textarea:-webkit-input-placeholder {
+    color: #646464;
+}
+.c-input-bomE textarea::placeholder {
+    color: #646464;
+}
+.c-input-bomE textarea:focus, .c-input-bomE textarea:focus-visible {
+    border-color: #cbc8c2;
+}
+.c-input-bomE textarea:focus-visible {
+    outline-offset: -0.125rem;
+}
+.c-input-bomE .counting-box {
+    text-align: right;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: #969491;
+}
+.c-input-bomE .counting-box .counting-num {
+    color: #262626;
+}
+.c-input-bomE + .textarea-support-box {
+    margin-top: -1.25rem;
+    padding-right: 10.3125rem;
+}
+.c-input-bomE.in-btn {
+    display: flex;
+    gap: 0.5rem;
+}
+.c-input-bomE.in-btn .c-input-bomE--field {
+    position: relative;
+    flex: 1;
+}
+.c-domain-guide {
+    position: relative;
+}
+.c-domain-guide .c-domain-guide__layer {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    max-width: 28rem;
+    margin-top: 0.25rem;
+    border: 0.0625rem solid #cbc8c2;
+    border-radius: var(--primitive-radius-6);
+    background-color: #fff;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.14);
+}
+.c-domain-guide .c-domain-guide__list {
+    margin: 0;
+    padding: 0.3125rem;
+}
+.c-domain-guide .c-domain-guide__item {
+    list-style: none;
+    margin-top: 0.125rem;
+    border-radius: var(--primitive-radius-4);
+    color: #737373;
+}
+.c-domain-guide .c-domain-guide__item:first-child {
+    margin-top: 0;
+}
+.c-domain-guide .c-domain-guide__item[aria-selected=true] {
+    background-color: #f2f2f2;
+    color: #000;
+}
+.c-domain-guide .c-domain-guide__button {
+    width: 100%;
+    padding: 0.375rem 0.5rem;
+    cursor: pointer;
+    text-align: left;
+    border: 0;
+    background-color: transparent;
+}
+.c-input-bomE__info {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.3125rem;
+    margin-left: 0.8125rem;
+}
+.c-input-bomE__info li {
+    margin: 0;
+    list-style: none;
+}
+.c-input-bomE__info > li {
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    margin-top: 0.3125rem;
+    color: var(--semantic-color-on-surface-text-field-assistive);
+}
+.c-input-bomE__info > li:first-child {
+    margin-top: 0;
+}
+.c-input-bomE__info > li.bullet, .c-input-bomE__info > li.star {
+    position: relative;
+    padding-left: 0.5625rem;
+}
+.c-input-bomE__info > li.bullet::before, .c-input-bomE__info > li.star::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+}
+.c-input-bomE__info > li.bullet:before {
+    width: 0.1875rem;
+    height: 0.1875rem;
+    background-color: #646464;
+    border-radius: var(--semantic-radius-badge-full);
+}
+.c-input-bomE__info > li.star:before {
+    content: "*";
+    top: 0.375rem;
+    line-height: 1;
+    font-size: 0.625rem;
+}
+.bomE-warning {
+    color: var(--semantic-color-on-surface-main-error);
+    position: relative;
+    margin-top: 0.3125rem;
+    font-size: 0.8125rem;
+    line-height: 0.9375rem;
+    margin-left: 0.8125rem;
+}
+.bomE-warning.wa-check {
+    padding-left: 1.25rem;
+}
+.bomE-warning.wa-check:before {
+    content: "";
+    display: block;
+    background-image: url("../../assets/icon/bome-error-default-14-14.svg");
+    background-size: 0.875rem 0.875rem;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.875rem;
+    height: 0.875rem;
+}
+.bomE-warning.wa-check.heritage {
+    color: #a50034 !important;
+}
+.bomE-warning.wa-check.heritage:before {
+    background-image: url("../../assets/icon/bome-error-heritage-14-14.svg");
+    background-size: 0.875rem 0.875rem;
+    background-position: center;
+}
+.bomE-correct {
+    color: var(--semantic-color-on-surface-main-success);
+    position: relative;
+    padding-left: 0.8125rem;
+    margin-top: 0.3125rem;
+    font-size: 0.8125rem;
+    line-height: 0.9375rem;
+    margin-left: 0.8125rem;
+}
+.bomE-correct.wa-check {
+    padding-left: 1.25rem;
+}
+.bomE-correct.wa-check::before {
+    content: "";
+    display: block;
+    background-image: url("../../assets/icon/bome-correct-14-14.svg");
+    background-size: 0.875rem 0.875rem;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.875rem;
+    height: 0.875rem;
+}
+.c-button--default.c-button.button-bomE {
+    line-height: 1;
+    font-weight: 600;
+    color: var(--semantic-color-on-surface-button-secondary);
+    background: var(--semantic-color-surface-button-secondary);
+    border: 0.0625rem solid var(--semantic-color-stroke-button);
+    padding: 0.25rem 0.75rem;
+}
+.c-button--default.c-button.button-bomE.w-xlarge {
+    min-width: 7.5rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    border-radius: var(--semantic-radius-button-l);
+}
+.c-button--default.c-button.button-bomE.w-large {
+    min-width: 6.875rem;
+    height: 3.5rem;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    border-radius: var(--semantic-radius-button-l);
+}
+.c-button--default.c-button.button-bomE.w-medium {
+    min-width: 6.25rem;
+    height: 3rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    border-radius: var(--semantic-radius-button-m);
+}
+.c-button--default.c-button.button-bomE.w-semi-medium {
+    min-width: 6.25rem;
+    height: 2.75rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    border-radius: var(--semantic-radius-button-m);
+}
+.c-button--default.c-button.button-bomE.w-small {
+    min-width: 5rem;
+    height: 2.25rem;
+    font-size: 0.875rem;
+    border-radius: var(--semantic-radius-button-s);
+}
+.c-button--default.c-button.button-bomE.w-xsmall {
+    min-width: 4.5rem;
+    height: 1.75rem;
+    font-size: 0.75rem;
+    border-radius: var(--semantic-radius-button-s);
+}
+.c-button--default.c-button.button-bomE.bg-none {
+    background-color: transparent;
+}
+.c-button--default.c-button.button-bomE.bg-none:hover {
+    background: #ea1917;
+    border-color: #ea1917;
+    color: #fff;
+}
+.c-button--default.c-button.button-bomE.bg-none.darkened:hover {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+.c-button--default.c-button.button-bomE:hover {
+    background: var(--semantic-color-surface-button-secondary-hover);
+    border-color: var(--semantic-color-surface-button-secondary-hover);
+    color: var(--semantic-color-on-surface-button-secondary-hover);
+}
+.c-button--default.c-button.button-bomE.highlight {
+    color: var(--semantic-color-on-surface-button-primary);
+    background: var(--semantic-color-surface-button-primary);
+    border-color: var(--semantic-color-surface-button-primary);
+}
+.c-button--default.c-button.button-bomE.highlight:hover {
+    background: var(--semantic-color-surface-button-primary-hover);
+    border-color: var(--semantic-color-on-surface-button-primary-hover);
+    color: var(--semantic-color-on-surface-button-primary-hover);
+}
+.c-button--default.c-button.button-bomE.darkened {
+    color: #333;
+    border-color: currentcolor;
+}
+.c-button--default.c-button.button-bomE.darkened:hover {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+.c-button--default.c-button.button-bomE[disabled] {
+    color: var(--semantic-color-on-surface-button-secondary);
+    background-color: var(--semantic-color-surface-button-secondary);
+    border-color: currentcolor;
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: default;
+}
+@media (max-width: 48rem) {
+    .c-button--default.c-button.button-bomE.m-xlarge {
+        min-width: 7.5rem;
+        height: 4rem;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        border-radius: var(--semantic-radius-button-l);
+    }
+    .c-button--default.c-button.button-bomE.m-large {
+        min-width: 6.875rem;
+        height: 3.5rem;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+        border-radius: var(--semantic-radius-button-l);
+    }
+    .c-button--default.c-button.button-bomE.m-medium {
+        min-width: 6.25rem;
+        height: 3rem;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        border-radius: var(--semantic-radius-button-m);
+    }
+    .c-button--default.c-button.button-bomE.m-semi-medium {
+        min-width: 6.25rem;
+        height: 2.75rem;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        border-radius: var(--semantic-radius-button-m);
+    }
+    .c-button--default.c-button.button-bomE.m-small {
+        min-width: 5rem;
+        height: 2.25rem;
+        font-size: 0.875rem;
+        border-radius: var(--semantic-radius-button-s);
+    }
+    .c-button--default.c-button.button-bomE.m-xsmall {
+        min-width: 4.5rem;
+        height: 1.75rem;
+        font-size: 0.75rem;
+        border-radius: var(--semantic-radius-button-s);
+    }
+}
+@keyframes move {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes clear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.MBN001 {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 120rem;
+}
+.MBN001 .component-logo {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 109.75rem;
+    padding: 1.1875rem 1.5rem;
+}
+.MBN001 .component-logo .logo-header-link {
+    margin: 0;
+    display: flex;
+    text-align: left;
+    justify-items: flex-start;
+    cursor: pointer;
+}
+.MBN001 .component-logo .logo-header-link .c-image {
+    width: 5.375rem;
+    height: 2.375rem;
+}
+.MBN001 .component-logo .logo-header-link .c-image * {
+    height: 100%;
+}
+@media (max-width: 48rem) {
+    .MBN001 .component-logo {
+        padding: 1rem;
+    }
+    .MBN001 .component-logo .logo-header-link .c-image {
+        width: 4.5625rem;
+        height: 2rem;
+    }
+}
+.MBN001 .component {
+    display: flex;
+    height: auto;
+    min-height: calc(100dvh - 5rem);
+    justify-content: center;
+}
+.MBN001 .component > .cmp-container {
+    flex: auto;
+    padding: 0 1rem 5rem;
+}
+@media (max-width: 48rem) {
+    .MBN001 .component {
+        display: block;
+        min-height: auto;
+    }
+    .MBN001 .component > .cmp-container {
+        padding: 0 1rem 1.5rem;
+    }
+}
+.MBN001 .continue-area {
+    margin: 0 auto;
+    max-width: 29rem;
+}
+.MBN001 .continue-box {
+    display: flex;
+    flex-direction: column;
+    padding: 2.75rem 2.25rem;
+    background-color: #fff;
+    border-radius: 0.75rem;
+}
+.MBN001 .continue-box .bomE-group {
+    display: flex;
+    gap: 0.5rem;
+}
+.MBN001 .continue-box .bomE-group .c-input-bomE {
+    width: 100%;
+}
+.MBN001 .continue-box .bomE-group .c-input-bomE:first-child {
+    min-width: 6.25rem;
+    flex: 1;
+}
+.MBN001 .continue-box .toast-aria {
+    margin-top: 1.25rem;
+}
+.MBN001 .continue-box .bomE-group {
+    display: flex;
+    gap: 0.5rem;
+}
+.MBN001 .continue-box .bomE-group .c-input-bomE {
+    width: 100%;
+}
+.MBN001 .continue-box .bomE-group .c-input-bomE:first-child {
+    min-width: 6.25rem;
+    flex: 1;
+}
+.MBN001 .continue-box__inner {
+    display: none;
+}
+.MBN001 .continue-box__inner.active {
+    display: block !important;
+}
+.MBN001 .continue-head .continue-title {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    color: #000;
+}
+.MBN001 .continue-head .continue-title span {
+    color: #ea1917;
+}
+.MBN001 .continue-info-block--email {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    margin-top: 1rem;
+}
+.MBN001 .continue-info-block--email .continue-info-text {
+    display: flex;
+    align-items: center;
+}
+.MBN001 .continue-info-block--email .continue-info-text::before {
+    content: "";
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.375rem;
+    background: url("../../assets/icon/icon-account-circle-gray-24-24.svg") center/contain no-repeat;
+}
+.MBN001 .continue-info-block--email .c-button[class*=-underline] {
+    color: #333;
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    margin-left: 0.5rem;
+}
+.MBN001 .continue-check__box {
+    display: none;
+}
+.MBN001 .continue-check__box.active {
+    display: block !important;
+}
+.MBN001 .continue-check__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.25rem;
+    flex-direction: column;
+    margin-top: 1.75rem;
+}
+.MBN001 .continue-check__list li {
+    margin: 0;
+    list-style: none;
+}
+.MBN001 .continue-check__list li .btn-full {
+    width: 100%;
+}
+.MBN001 .continue-check__list li .c-input-bomE__info {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.3125rem;
+    margin-left: 0.8125rem;
+}
+.MBN001 .continue-check__list li .c-input-bomE__info li {
+    margin: 0;
+    list-style: none;
+}
+.MBN001 .continue-check__list li .c-input-bomE__info > li {
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    margin-top: 0.3125rem;
+    color: var(--semantic-color-on-surface-text-field-assistive);
+}
+.MBN001 .continue-check__list li .c-input-bomE__info > li:first-child {
+    margin-top: 0;
+}
+.MBN001 .continue-check__list li .c-input-bomE__info > li.bullet, .MBN001 .continue-check__list li .c-input-bomE__info > li.star {
+    position: relative;
+    padding-left: 0.5625rem;
+}
+.MBN001 .continue-check__list li .c-input-bomE__info > li.bullet::before, .MBN001 .continue-check__list li .c-input-bomE__info > li.star::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+}
+.MBN001 .continue-check__list li .c-input-bomE__info > li.bullet:before {
+    width: 0.1875rem;
+    height: 0.1875rem;
+    background-color: #646464;
+    border-radius: var(--semantic-radius-badge-full);
+}
+.MBN001 .continue-check__list li .c-input-bomE__info > li.star:before {
+    content: "*";
+    top: 0.375rem;
+    line-height: 1;
+    font-size: 0.625rem;
+}
+.MBN001 .continue-check__list li .c-input-bomE__info .is-disabled {
+    pointer-events: none !important;
+    color: #cbc8c2;
+}
+.MBN001 .continue-check__list li .c-input-bomE.in-btn .button-bomE {
+    min-width: 7.5rem;
+}
+.MBN001 .continue-check__list li .c-input-bomE:has(.my-warn) .c-input-bomE--side span {
+    color: #ea1917;
+}
+.MBN001 .continue-check__list li .c-captcha {
+    padding-bottom: 1.25rem;
+    border-bottom: 0.0625rem solid #e0e0e0;
+}
+.MBN001 .continue-check__list li .c-captcha__wrapper {
+    gap: 1.25rem;
+}
+.MBN001 .continue-function__box {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 1.25rem;
+    justify-content: space-between;
+}
+.MBN001 .continue-function__box .c-checkbox-item .label {
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    font-weight: 400;
+    align-items: center;
+    color: #333;
+}
+.MBN001 .continue-function__box .c-button--text-underline {
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    color: #333;
+    text-underline-offset: inherit;
+}
+.MBN001 .continue-signup__box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding-left: 2.75rem;
+    margin-top: 0.75rem;
+}
+.MBN001 .continue-signup__box:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.125rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-image: url("../../assets/icon/icon-exclusive-red-36-36.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.MBN001 .continue-signup__box .continue-signup {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    color: #000;
+    letter-spacing: -0.005rem;
+}
+.MBN001 .continue-signup__box a {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    color: #ea1917;
+    text-decoration: underline;
+}
+.MBN001 .continue-signup__box + .continue-social__box {
+    margin-top: 0.75rem;
+}
+.MBN001 .continue-social__box {
+    margin-top: 1.25rem;
+}
+.MBN001 .continue-social__box .text-divider {
+    width: 100%;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.MBN001 .continue-social__box .text-divider p {
+    position: relative;
+    width: 100%;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: #646464;
+    text-align: center;
+    z-index: 1;
+}
+.MBN001 .continue-social__box .text-divider p::before, .MBN001 .continue-social__box .text-divider p::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 1.5rem);
+    height: 0.0625rem;
+    background-color: #e0e0e0;
+}
+.MBN001 .continue-social__box .text-divider p::before {
+    left: 0;
+}
+.MBN001 .continue-social__box .text-divider p::after {
+    right: 0;
+}
+.MBN001 .continue-social__box .my-linkedlogin-icon {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+.MBN001 .continue-social__box .my-linkedlogin-icon li {
+    margin: 0;
+    list-style: none;
+}
+.MBN001 .continue-social__box .my-linkedlogin-icon a {
+    border: none;
+}
+.MBN001 .continue-social__box .my-linkedlogin-icon__ico-box {
+    background-color: #f6f6f6;
+    border-radius: 50%;
+    display: flex;
+    width: 3.5rem;
+    height: 3.5rem;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    cursor: pointer;
+}
+.MBN001 .continue-social__box .my-linkedlogin-icon__ico {
+    display: block;
+    width: 1.125rem;
+    height: 1.125rem;
+}
+.MBN001 .continue-social__box .my-linkedlogin-icon__ico--apple {
+    background: url("../../assets/icon/icon-apple-color-30-30.svg") center/contain no-repeat;
+}
+.MBN001 .continue-social__box .my-linkedlogin-icon__ico--amazon {
+    background: url("../../assets/icon/icon-amazon-color-30-30.svg") center/contain no-repeat;
+}
+.MBN001 .continue-social__box .my-linkedlogin-icon__ico--google {
+    background: url("../../assets/icon/icon-google-color-30-30.svg") center/contain no-repeat;
+}
+.MBN001 .continue-social__box .my-linkedlogin-icon__ico--facebook {
+    background: url("../../assets/icon/icon-facebook-clean-30-30.svg") center/contain no-repeat;
+}
+.MBN001 .continue-btn-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+}
+.MBN001 .continue-btn-wrapper button.button-bomE {
+    width: 100%;
+}
+.MBN001 .continue-bottom__info {
+    padding-top: 0.75rem;
+}
+.MBN001 .continue-bottom__info ul.continue-policy-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    justify-content: center;
+}
+.MBN001 .continue-bottom__info ul.continue-policy-list li {
+    margin: 0;
+    list-style: none;
+}
+.MBN001 .continue-bottom__info ul.continue-policy-list > li {
+    line-height: 1rem;
+    text-align: center;
+}
+.MBN001 .continue-bottom__info ul.continue-policy-list > li a {
+    display: inline-block;
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    color: #333;
+    word-break: break-word;
+    font-weight: 400;
+}
+@media (max-width: 48rem) {
+    .MBN001 .continue-box {
+        padding: 1.75rem 1.25rem;
+    }
+    .MBN001 .continue-box .bomE-group {
+        display: flex;
+        flex-flow: column;
+        gap: 1.25rem;
+    }
+    .MBN001 .continue-box .bomE-group .c-input-bomE:first-child {
+        min-width: auto;
+        flex: 1;
+    }
+    .MBN001 .continue-head .continue-title {
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+    }
+    .MBN001 .continue-check__list {
+        position: relative;
+        z-index: 0;
+        margin-top: 1.5rem;
+    }
+    .MBN001 .continue-check__list li .c-input-bomE.in-btn {
+        gap: 1.25rem;
+        flex-flow: column;
+    }
+    .MBN001 .continue-check__list li:has(.in-btn) {
+        display: flex;
+        flex-flow: column;
+    }
+    .MBN001 .continue-check__list li:has(.in-btn) .in-btn {
+        display: contents;
+    }
+    .MBN001 .continue-check__list li:has(.in-btn) .button-bomE {
+        order: 1;
+        margin-top: 1.25rem;
+    }
+    .MBN001 .continue-function__box {
+        gap: 0.75rem;
+    }
+    .MBN001 .continue-function__box .c-checkbox-item .label:before {
+        width: 1rem;
+        height: 1rem;
+        min-width: 1rem;
+        background-size: 0.75rem;
+    }
+    .MBN001 .continue-signup__box {
+        padding-left: 2.5rem;
+    }
+    .MBN001 .continue-signup__box:before {
+        top: 0;
+        width: 2rem;
+        height: 2rem;
+        background-image: url("../../assets/icon/icon-exclusive-red-32-32.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .MBN001 .continue-signup__box .continue-signup {
+        font-size: 0.875rem;
+        line-height: 1rem;
+        letter-spacing: normal;
+    }
+    .MBN001 .continue-signup__box a {
+        font-size: 0.875rem;
+        line-height: 1rem;
+        display: block;
+    }
+}
+.MBN001 .complet-box__inner {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+.MBN001 .complet-line__text {
+    position: relative;
+    text-align: center;
+}
+.MBN001 .complet-line__text:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 0.0625rem;
+    background-color: #cbc8c2;
+    z-index: 1;
+}
+.MBN001 .complet-line__text p {
+    display: inline-block;
+    max-width: 80%;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    color: #646464;
+    letter-spacing: -0.0025rem;
+    padding: 0.5rem 0.625rem;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+}
+.MBN001 .continue-box.type-extends {
+    max-width: 53.75rem;
+    flex-flow: row;
+    gap: 5rem;
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+}
+.MBN001 .continue-box.type-extends .continue-box__inner {
+    position: relative;
+    max-width: 25rem;
+    width: 100%;
+}
+.MBN001 .continue-box.type-extends .complet-box__inner {
+    position: relative;
+    max-width: 18.75rem;
+    width: 100%;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.MBN001 .continue-box.type-extends .complet-box__inner:after {
+    content: "";
+    position: absolute;
+    width: 0.0625rem;
+    top: 0;
+    bottom: 0;
+    left: -2.5rem;
+    background-color: #e0e0e0;
+}
+.MBN001 .continue-box.type-extends .complet-box__inner .complet-line__text {
+    text-align: left;
+}
+.MBN001 .continue-box.type-extends .complet-box__inner .complet-line__text:before {
+    content: none !important;
+}
+.MBN001 .continue-box.type-extends .complet-box__inner .complet-line__text p {
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    color: #000;
+    padding: 0;
+}
+@media (max-width: 48rem) {
+    .MBN001 .continue-box.type-extends {
+        max-width: 48rem;
+        width: 100%;
+        flex-flow: column;
+        gap: 5rem;
+        padding: 1.5rem 0.875rem 1.1875rem 0.875rem;
+    }
+    .MBN001 .continue-box.type-extends .continue-box__inner {
+        max-width: none;
+        width: 100%;
+    }
+    .MBN001 .continue-box.type-extends .complet-box__inner {
+        max-width: none;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 1.5rem;
+    }
+    .MBN001 .continue-box.type-extends .complet-box__inner:after {
+        width: 100%;
+        top: -2.5rem;
+        bottom: auto;
+        left: 0;
+        right: 0;
+        height: 0.0625rem;
+    }
+    .MBN001 .continue-box.type-extends .complet-box__inner .complet-line__text {
+        text-align: left;
+    }
+    .MBN001 .continue-box.type-extends .complet-box__inner .complet-line__text p {
+        font-size: 1.125rem;
+        line-height: 1.25rem;
+        color: #000;
+        padding: 0;
+    }
+}
+.MBN001 .auth-tab-info {
+    margin-top: 1.75rem;
+}
+.MBN001 .auth-tab-info .cmp-tabs__tablist {
+    width: 100%;
+    display: inline-flex;
+    align-items: stretch;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    background-color: #f0f0f0;
+}
+.MBN001 .auth-tab-info .cmp-tabs__tablist button {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+.MBN001 .auth-tab-info .cmp-tabs__tablist .cmp-tabs__tab {
+    flex: 1;
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #646464;
+    background-color: transparent;
+}
+.MBN001 .auth-tab-info .cmp-tabs__tablist .cmp-tabs__tab--active {
+    color: #000;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    background-color: #fff;
+    box-shadow: 0 0.25rem 1rem 0 rgba(12, 17, 29, 0.06);
+}
+.MBN001 .auth-pannel-area .cmp-tabs__tabpanel .continue-check__list {
+    margin-top: 1.5rem;
+}
+@media (max-width: 48rem) {
+    .MBN001 .auth-tab-info {
+        margin-top: 1.5rem;
+    }
+}
+.popPassword .c-pop-msg__container {
+    max-width: 32rem;
+    padding: 3.125rem;
+}
+.popPassword .popPasswd__title {
+    padding-bottom: 1.25rem;
+}
+.popPassword .popPasswd__title .passwd-title {
+    font-size: 1.75rem;
+    line-height: 2.125rem;
+}
+.popPassword .popPasswd__content .passwd-info--box .cmp-text {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: #333;
+}
+.popPassword .popPasswd__content .passwd-info--box .cmp-text span {
+    color: #000;
+}
+.popPassword .popPasswd__content .passwd-list--form {
+    margin-top: 1.25rem;
+}
+.popPassword .popPasswd__content .passwd-list--form ul.passwd-check__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.popPassword .popPasswd__content .passwd-list--form ul.passwd-check__list li {
+    margin: 0;
+    list-style: none;
+}
+.popPassword .c-pop-msg__button-wrap {
+    margin-top: 1.25rem;
+}
+.popPassword .c-pop-msg__button-wrap .button-bomE {
+    width: 100%;
+}
+@media (max-width: 48rem) {
+    .popPassword .c-pop-msg__container {
+        padding: 2.5rem 1.875rem;
+    }
+    .popPassword .popPasswd__title .passwd-title {
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+    }
+}
+@media (max-width: 48rem) {
+    body:has(.grecaptcha-badge) .MBN001 .component > .cmp-container {
+        padding-bottom: 6.25rem;
+    }
+}
+/*# sourceMappingURL=MBN001.css.map */

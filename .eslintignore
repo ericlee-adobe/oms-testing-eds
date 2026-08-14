@@ -1,2 +1,11 @@
 helix-importer-ui
 *.min.js
+
+# generated React bundles and source maps (see vite.config.js / src)
+*.map
+blocks/login/login.js
+
+# React sources (JSX) and build/dev tooling are not covered by the airbnb-base parser
+src
+vite.config.mjs
+tools

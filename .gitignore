@@ -8,6 +8,12 @@ helix-importer-ui
 *.bak
 .idea
 
+# Local env config (VITE_ vars are inlined into the built bundle at build time)
+.env
+
+# Vite build source maps
+*.js.map
+
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
