@@ -187,6 +187,12 @@ With this information, you can construct URLs for the preview environment (same 
 - Regularly update dependencies
 - Use the .hlxignore file to prevent files from being served (same format as .gitingnore)
 
+## Attribution
+
+- Do not mention "Claude" in code comments.
+- Do not use "Claude" as a developer, author, or committer name.
+- Do not add "Co-Authored-By: Claude" or similar attribution lines to commit messages or PR descriptions.
+
 ## Contributing
 
 - Follow the existing code style and patterns
