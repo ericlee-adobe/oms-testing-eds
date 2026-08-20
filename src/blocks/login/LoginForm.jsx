@@ -41,6 +41,82 @@ function getRegPwFlag() {
     return document.documentElement.dataset.regPwFlag || 'N';
 }
 
+// ACCS API Mesh proxy fronting the `ssoLogin` mutation. Same resolve-at-runtime
+// switch as the ACC proxy above: localhost talks to the locally-run mesh-proxy
+// (http://localhost:5050) while EDS/preview/prod use the hosted one. Both expose
+// the same `/graphql` path and add CORS, so one committed bundle works everywhere.
+const MESH_PROXY_LOCAL = import.meta.env.VITE_MESH_PROXY_LOCAL ?? 'http://localhost:5050';
+const MESH_PROXY_REMOTE = import.meta.env.VITE_MESH_PROXY
+    ?? 'https://285361-964browntortoise-stage.adobeio-static.net/api/v1/web/api-mesh/mesh-proxy';
+const MESH_PROXY = `${IS_LOCALHOST ? MESH_PROXY_LOCAL : MESH_PROXY_REMOTE}/graphql`;
+
+// Commerce store view code for the mesh `Store` header (UK-only POC). NCMS sends
+// the lowercased locale code here (ApolloClientSetup.js / OBSTokenGenerateService).
+const STORE_CODE = import.meta.env.VITE_COMMERCE_STORE_CODE ?? 'uk';
+
+// Cookie names mirror NCMS (site/assets/js/common/constant.js) so the rest of the
+// storefront treats the customer as signed in: the Commerce customer JWT lives in
+// AUTH_TOKEN (sent as `Authorization: Bearer` on later authenticated GraphQL
+// calls), with the SSO tokens kept alongside for refresh.
+const COOKIE = {
+    authToken: 'AUTH_TOKEN',
+    accessToken: 'ACCESS_TOKEN',
+    refreshToken: 'REFRESH_TOKEN',
+    cartId: 'LGGP1_CartID',
+};
+
+function readCookie(name) {
+    const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+    return match ? decodeURIComponent(match[1]) : '';
+}
+
+function writeCookie(name, value) {
+    if (!value) return;
+    document.cookie = `${name}=${encodeURIComponent(value)}; path=/; samesite=lax`;
+}
+
+// ACCS-native ssoLogin (sso-login-in-accs.md §2). Same request shape NCMS uses
+// (OBSTokenGenerateService.java): the SSO access token is the `code`, cartId comes
+// from the LGGP1_CartID cookie. ACCS also returns customer_created alongside token.
+const SSO_LOGIN_MUTATION = `mutation ($code: String!, $cartId: String, $isCheckoutBuynow: Boolean) {
+  ssoLogin(code: $code, cartId: $cartId, isCheckoutBuynow: $isCheckoutBuynow) {
+    token
+    customer_created
+  }
+}`;
+
+// Exchange the LG SSO access token for a native Commerce customer token via the
+// mesh `ssoLogin` mutation. Returns { token, customer_created }; throws on any
+// GraphQL error or a missing token so the caller can surface a clean message.
+async function exchangeSsoToken(accessToken) {
+    const cartId = readCookie(COOKIE.cartId) || null;
+
+    const response = await fetch(MESH_PROXY, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            store: STORE_CODE,
+        },
+        body: JSON.stringify({
+            query: SSO_LOGIN_MUTATION,
+            variables: { code: accessToken, cartId, isCheckoutBuynow: false },
+        }),
+    });
+
+    const result = await response.json();
+
+    if (result?.errors?.length) {
+        throw new Error(result.errors.map((e) => e.message).join('; '));
+    }
+
+    const ssoResult = result?.data?.ssoLogin;
+    if (!ssoResult?.token) {
+        throw new Error('ssoLogin returned no Commerce token.');
+    }
+
+    return ssoResult;
+}
+
 const COUNTRIES = [
     { value: 'GB', label: 'UK' },
     { value: 'IE', label: 'Ireland' },
@@ -66,9 +142,6 @@ export default function LoginForm() {
         message: '',
         type: '', // 'success' | 'error' | 'warning'
     });
-
-    // tokens returned by ACC validationAccount, kept for review
-    const [tokens, setTokens] = useState(null);
 
     const emailValid = EMAIL_PATTERN.test(formData.email);
     const passwordValid = formData.password.length > 0;
@@ -180,7 +253,6 @@ export default function LoginForm() {
         if (!passwordValid) return;
 
         setStatus({ loading: true, message: '', type: '' });
-        setTokens(null);
 
         try {
             // 1. Encrypt credentials: SHA-512 hashes (+ optional RSA-2048).
@@ -227,16 +299,35 @@ export default function LoginForm() {
                 return;
             }
 
-            // 4. Extract tokens for review.
-            const { tokenInfo, accessKey } = result.data;
-            setTokens({
-                accessToken: tokenInfo?.accessToken,
-                refreshToken: tokenInfo?.refreshToken,
-                accessKey,
-            });
-            // eslint-disable-next-line no-console
-            console.log('ACC validationAccount tokens:', { tokenInfo, accessKey });
-            setStatus({ loading: false, message: 'Login successful.', type: 'success' });
+            // 4. Extract the SSO tokens ACC returned.
+            const { tokenInfo } = result.data;
+            const accessToken = tokenInfo?.accessToken;
+            const refreshToken = tokenInfo?.refreshToken;
+
+            if (!accessToken) {
+                setStatus({
+                    loading: false,
+                    message: 'Sign-in succeeded but no SSO access token was returned.',
+                    type: 'error',
+                });
+                return;
+            }
+
+            // 5. Exchange the SSO access token for a native Commerce customer
+            // token via the mesh `ssoLogin` mutation (NCMS OBSTokenGenerateService
+            // equivalent). This is the step that actually logs the customer into
+            // Commerce.
+            const { token: commerceToken } = await exchangeSsoToken(accessToken);
+
+            // 6. Persist tokens the way NCMS does (ssoConfirmation.js): the
+            // Commerce JWT in AUTH_TOKEN — read as `Authorization: Bearer` on all
+            // later authenticated GraphQL calls — with the SSO tokens alongside.
+            // Writing AUTH_TOKEN is what marks the customer as signed in.
+            writeCookie(COOKIE.authToken, commerceToken);
+            writeCookie(COOKIE.accessToken, accessToken);
+            writeCookie(COOKIE.refreshToken, refreshToken);
+
+            setStatus({ loading: false, message: 'Signed in successfully.', type: 'success' });
         } catch (error) {
             setStatus({ loading: false, message: error.message, type: 'error' });
         }
@@ -439,12 +530,6 @@ export default function LoginForm() {
                                     </li>
                                 </ul>
                             </div>
-                        )}
-
-                        {tokens && (
-                            <pre className="login-debug-tokens" aria-label="ACC tokens (debug)">
-                                {JSON.stringify(tokens, null, 2)}
-                            </pre>
                         )}
 
                         <div className="continue-function__box">
