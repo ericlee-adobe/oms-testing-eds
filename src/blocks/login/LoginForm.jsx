@@ -65,6 +65,14 @@ const COOKIE = {
     cartId: 'LGGP1_CartID',
 };
 
+// Login pages are authored per-locale at a root path (e.g. /uk/login,
+// /ca_en/login). After sign-in, send the customer back to that locale's
+// root ("/uk/", "/ca_en/") rather than leaving them on the login page.
+function getLocaleRootUrl() {
+    const [firstSegment] = window.location.pathname.split('/').filter(Boolean);
+    return firstSegment ? `/${firstSegment}/` : '/';
+}
+
 function readCookie(name) {
     const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
     return match ? decodeURIComponent(match[1]) : '';
@@ -328,6 +336,7 @@ export default function LoginForm() {
             writeCookie(COOKIE.refreshToken, refreshToken);
 
             setStatus({ loading: false, message: 'Signed in successfully.', type: 'success' });
+            window.location.href = getLocaleRootUrl();
         } catch (error) {
             setStatus({ loading: false, message: error.message, type: 'error' });
         }
